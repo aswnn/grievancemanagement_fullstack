@@ -26,6 +26,7 @@ function Register() {
   };
 
   return (
+    <div>
     <form onSubmit={handleRegister}>
       <input
         type="text"
@@ -43,6 +44,8 @@ function Register() {
       />
       <button type="submit">Register</button>
     </form>
+   
+    </div>
   );
 }
 

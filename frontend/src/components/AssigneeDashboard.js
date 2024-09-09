@@ -1,24 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './AssigneeDashboard.css'; 
+import { useNavigate } from 'react-router-dom';
 
 const API_BASE_URL = 'http://localhost:8082';
 
 function AssigneeDashboard({ user }) {
   const [grievances, setGrievances] = useState([]);
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    fetchGrievances();
-  }, []);
-
-  const fetchGrievances = async () => {
+  const fetchGrievances = useCallback(async () => {
     try {
       const response = await axios.get(`${API_BASE_URL}/api/grievances`);
       setGrievances(response.data.filter(grievance => grievance.assignee && grievance.assignee.id === user.id));
     } catch (error) {
       console.error('Failed to fetch grievances', error);
     }
-  };
+  }, [user.id]);
+
+  useEffect(() => {
+    fetchGrievances();
+  }, [fetchGrievances]);
 
   const resolveGrievance = async (grievanceId) => {
     try {
@@ -48,6 +50,9 @@ function AssigneeDashboard({ user }) {
             </div>
           ))
         )}
+      </div>
+      <div className='assigneelogout'>
+        <button className='logoutassign' onClick={() => navigate('/')}>Logout</button>
       </div>
     </div>
   );

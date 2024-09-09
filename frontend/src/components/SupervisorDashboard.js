@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './SupervisorDashboard.css';
+import { useNavigate } from 'react-router-dom';
 
 const API_BASE_URL = 'http://localhost:8082';
 
@@ -9,6 +10,7 @@ function SupervisorDashboard({ user }) {
   const [assignees, setAssignees] = useState([]);
   const [allUsers, setAllUsers] = useState([]);
   const [editingUserId, setEditingUserId] = useState(null);
+  const navigate= useNavigate();
 
   useEffect(() => {
     fetchGrievances();
@@ -135,6 +137,8 @@ function SupervisorDashboard({ user }) {
           </div>
         ))}
       </div>
+
+      <div className='superlogout'><button className='logout1'  onClick={()=>navigate('/')}>Logout</button></div>
     </div>
   );
 }
