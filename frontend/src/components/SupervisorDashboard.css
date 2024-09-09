@@ -1,0 +1,122 @@
+.supervisor-dashboard {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.supervisor-dashboard h1 {
+  color: #333;
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+}
+
+.grievances-list {
+  margin-top: 20px;
+}
+
+.grievance-item {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.grievance-item p {
+  margin: 5px 0;
+}
+
+.grievance-item select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.status-pending {
+  color: #f39c12;
+  font-weight: bold;
+}
+
+.status-in-progress {
+  color: #3498db;
+  font-weight: bold;
+}
+
+.status-resolved {
+  color: #2ecc71;
+  font-weight: bold;
+}
+.user-item {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative; /* Make sure the relative positioning is applied */
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.username {
+  margin-right: 15px;
+  white-space: nowrap;
+}
+
+.role-container {
+  position: relative;
+  display: flex; /* Align buttons horizontally */
+  align-items: center;
+}
+
+.edit-button {
+  background: none;
+  border: none;
+  color: #3498db;
+  font-size: 18px;
+  cursor: pointer;
+  margin-right: 10px; /* Space between edit and delete button */
+}
+
+.edit-button:hover {
+  color: #2980b9;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  color: #e74c3c;
+  font-size: 14px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-button:hover {
+  color: #c0392b;
+}
+
+.role-select {
+  display: block;
+  position: absolute;
+  top: 100%; /* Position it below the button */
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 1000;
+}
+
