@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './SupervisorDashboard.css';
 
-const API_BASE_URL = 'http://localhost:8080';
+const API_BASE_URL = 'http://localhost:8082';
 
 function SupervisorDashboard({ user }) {
   const [grievances, setGrievances] = useState([]);

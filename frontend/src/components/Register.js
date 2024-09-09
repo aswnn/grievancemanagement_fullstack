@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const API_BASE_URL = 'http://localhost:8080';
+const API_BASE_URL = 'http://localhost:8082';
 
 function Register() {
   const [username, setUsername] = useState('');
@@ -20,7 +20,7 @@ function Register() {
       alert('Registration successful! Please login.');
       navigate('/'); 
     } catch (error) {
-      console.error('Registration failed', error);
+      console.log('Registration failed', error);
       alert('Registration failed. Please try again.');
     }
   };

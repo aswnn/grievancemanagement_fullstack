@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './StudentDashboard.css';
 
-const API_BASE_URL = 'http://localhost:8080';
+const API_BASE_URL = 'http://localhost:8082';
 
 function StudentDashboard({ user, setUser }) {
   const [grievances, setGrievances] = useState([]);
