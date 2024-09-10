@@ -1,74 +1,100 @@
 .assignee-dashboard {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family:'Poppins', sans-serif;
+}
+
+.assignee-dashboard h1 {
+  color: 3c545e;
+  border-bottom: 2px solid ;
+  padding-bottom: 10px;
+  margin-left: -300px;
+  margin-right: -200px;
+
+}
+
+.assignee-dashboard h2{
+  padding: 30px;
+}
+
+.user-welcome {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.user-name {
+  font-weight: bold;
+  color: #3498db;
+}
+
+.grievances-list {
+  margin-top: 20px;
+  margin-left: -300px;
+  margin-right: -200px;
+}
+
+.grievance-item {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.grievance-item p {
+  margin: 5px 0;
+}
+
+.status {
+  font-weight: bold;
+}
+
+.status.assigned {
+  color: #ea4326;
+}
+
+.status.resolved {
+  color: #2ecc71;
+}
+
+.resolve-button {
+  background-color: rgb(73, 81, 95);
+  color: white;
+  border: none;
+  padding: 8px ;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s;
+}
+
+.resolve-button:hover {
+  background-color: #1b221e;
+}
+
+.no-grievances {
+  color: #777;
+  font-style: italic;
+}
+.assigneelogout{
+  position: absolute;
+top: 10px;
+right: 40px;
+margin-right: 130px;
+padding: 20px;
+}
+.logoutassign {
+  background-color: #455768;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
   
-  .assignee-dashboard h1 {
-    color: #333;
-    border-bottom: 2px solid #333;
-    padding-bottom: 10px;
-  }
-  
-  .user-welcome {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-  }
-  
-  .user-name {
-    font-weight: bold;
-    color: #3498db;
-  }
-  
-  .grievances-list {
-    margin-top: 20px;
-  }
-  
-  .grievance-item {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 15px;
-    margin-bottom: 15px;
-  }
-  
-  .grievance-item p {
-    margin: 5px 0;
-  }
-  
-  .status {
-    font-weight: bold;
-  }
-  
-  .status-pending {
-    color: #f39c12;
-  }
-  
-  .status-in-progress {
-    color: #3498db;
-  }
-  
-  .status-resolved {
-    color: #2ecc71;
-  }
-  
-  .resolve-button {
-    background-color: #2ecc71;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9em;
-    transition: background-color 0.3s;
-  }
-  
-  .resolve-button:hover {
-    background-color: #27ae60;
-  }
-  
-  .no-grievances {
-    color: #777;
-    font-style: italic;
-  }
+}
+
+.logoutassign:hover {
+  background-color: #0e0f10;
+}

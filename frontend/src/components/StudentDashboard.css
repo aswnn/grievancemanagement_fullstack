@@ -1,95 +1,149 @@
 .student-dashboard {
-    font-family: Arial, sans-serif;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f7f7f7;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.logoutuser {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  margin-right: 100px;
   
-  .student-dashboard h1 {
-    color: #333;
-    text-align: center;
-  }
+}
+
+.logout3 {
+  background-color: #455768;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
   
-  .user-name-student{
-    color: #5750dd;
-    font-weight: bold;
-  }
+}
+
+.logout3:hover {
+  background-color: #0e0f10;
+}
+
+.student-dashboard h1 {
+  margin: 0;
+  font-size: 50px;
+  color: #3c545e;
+  margin-top: 15px;
+  font-family:'Poppins', sans-serif;
+  font-style: oblique ;
+  margin-left: 150px;
+  font-weight: 8500;
+
+}
+
+.user-name-student {
+  color: #409cb9;
+}
+
+.grievance-section {
+  display: flex;
+  flex-direction: column;
+  margin-top: 140px;
+  color: #3c545e;
+  font-family:'Poppins', sans-serif;
+}
+.add{
+  margin-left: -330px;
+}
+
+.grievance-form {
+  display: flex;
+  height: 400px;
+  width: 550px;
+  flex-direction: column;
+  gap: 30px;
+  margin-left: -330px;
+}
+
+.grievance-textarea {
+  width: 100%;
+  height: 2500px;
+  padding: 20px;
+  border: 3px solid #9e9c9c;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.submit-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+
+.submit-button {
+  background-color: #455768;
+  color: white;
+  border: none;
+  font-family:'Poppins', sans-serif;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-button:hover {
+  background-color: #0e0f10;
+}
+
+.grievance-list {
+  margin-top: 60px;
+  margin-right: 100px;
+  margin-left: -250px;
+  font-family:'Poppins', sans-serif;
+
+}
+
+.grievance-item {
+  background-color: #f8f9fa;
+  border: 2px solid #60676d !important;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 10px;
   
-  .grievance-section, .grievance-list {
-    margin-top: 20px;
+}
+
+
+
+.status {
+  font-weight: bold !important;
+}
+
+.status.pending {
+  color: orange !important;
+}
+
+.status-in-progress {
+  color: #3498db  !important;
+}
+
+.status.resolved {
+  color: #2ecc71 !important;
+} 
+
+@media (min-width: 768px) {
+  .student-dashboard {
+    flex-direction: row;
   }
-  
-  .grievance-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+
+  .grievance-section,
+  .grievance-list {
+    flex: 1;
   }
-  
-  .grievance-textarea {
-    width: 100%;
-    height: 300px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    resize: none;
-    box-sizing: border-box;
+
+  .grievance-section {
+    margin-right: 20px;
   }
-  
-  .submit-container {
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .submit-button {
-    padding: 8px 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .submit-button:hover {
-    background-color: #45a049;
-  }
-  
-  .grievance-list h2 {
-    margin-bottom: 15px;
-  }
-  
-  .grievance-item {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .grievance-item p {
-    margin: 5px 0;
-  }
-  
-  .status {
-    padding: 5px 10px;
-    border-radius: 12px;
-  }
-  
-  .status.pending {
-    background-color: #FFA500;
-    color: white;
-  }
-  
-  .status.resolved {
-    background-color: #4CAF50;
-    color: white;
-  }
-  
-  .no-grievances {
-    text-align: center;
-    color: #999;
-  }
+}

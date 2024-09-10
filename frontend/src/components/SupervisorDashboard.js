@@ -12,12 +12,6 @@ function SupervisorDashboard({ user }) {
   const [editingUserId, setEditingUserId] = useState(null);
   const navigate= useNavigate();
 
-  useEffect(() => {
-    fetchGrievances();
-    fetchAssignees();
-    fetchAllUsers();
-  }, []);
-
   const fetchGrievances = async () => {
     try {
       const response = await axios.get(`${API_BASE_URL}/api/grievances`);
@@ -44,6 +38,12 @@ function SupervisorDashboard({ user }) {
       console.error('Failed to fetch users', error);
     }
   };
+
+  useEffect(() => {
+    fetchGrievances();
+    fetchAssignees();
+    fetchAllUsers();
+  }, []);
 
   const assignGrievance = async (grievanceId, assigneeId) => {
     try {
@@ -85,10 +85,10 @@ function SupervisorDashboard({ user }) {
     <div className="supervisor-dashboard">
       <h1>Supervisor Dashboard</h1>
 
-      <div className="grievances-list">
+      <div className="grievances-list1">
         <h2>All Grievances</h2>
         {grievances.map(grievance => (
-          <div key={grievance.id} className="grievance-item">
+          <div key={grievance.id} className="grievance-item1">
             <p><strong>Description:</strong> {grievance.description}</p>
             <p><strong>Status:</strong> <span className={`status-${grievance.status.toLowerCase().replace(' ', '-')}`}>{grievance.status}</span></p>
             <p><strong>Assigned to:</strong> {grievance.assignee ? grievance.assignee.username : 'Not Assigned'}</p>
@@ -114,9 +114,14 @@ function SupervisorDashboard({ user }) {
               <p className="username">UserName: {user.username}</p>
               <div className="role-container">
                 <p className="role">{user.role}</p>
+                <div className='icon-buttons'>
                 <button className="edit-button" onClick={() => toggleRoleDropdown(user.id)}>
                   ✎
                 </button>
+                <button className="delete-button" onClick={() => handleDelete(user.id)}>
+              🗑️
+            </button>
+            </div>
                 {editingUserId === user.id && (
                   <div className="role-select">
                     <select 
@@ -131,10 +136,7 @@ function SupervisorDashboard({ user }) {
                 )}
               </div>
             </div>
-            <button className="delete-button" onClick={() => handleDelete(user.id)}>
-              🗑️
-            </button>
-          </div>
+            </div>
         ))}
       </div>
 
