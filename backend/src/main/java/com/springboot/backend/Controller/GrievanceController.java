@@ -34,4 +34,10 @@ public class GrievanceController {
     public ResponseEntity<Grievance> resolveGrievance(@PathVariable Long grievanceId) {
         return ResponseEntity.ok(grievanceService.resolveGrievance(grievanceId));
     }
+    @DeleteMapping("/delete/{grievanceId}")
+    public ResponseEntity<Void> deleteGrievance(@PathVariable Long grievanceId) {
+        System.out.println("Attempting to delete grievance with ID: " + grievanceId);
+        grievanceService.deleteGrievance(grievanceId);
+        return ResponseEntity.noContent().build();
+    }
 }

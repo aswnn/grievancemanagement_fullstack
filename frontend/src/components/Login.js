@@ -16,6 +16,7 @@ function Login({ setUser }) {
       const response = await axios.post(`${API_BASE_URL}/api/users/login`, null, {
         params: { username, password }
       });
+
       setUser(response.data);
       switch (response.data.role) {
         case 'STUDENT':
@@ -29,10 +30,12 @@ function Login({ setUser }) {
           break;
         default:
           console.error('Unknown user role');
+
       }
     } catch (error) {
       console.error('Login failed', error);
       alert('Invalid username or password');
+
     }
   };
 
@@ -41,8 +44,10 @@ function Login({ setUser }) {
   };
 
   return (
-  <div className="login-container">
-    <form onSubmit={handleSubmit}>
+    <div className="login-container">
+    <h1 className="title1">Grievance Redressal Cell</h1>
+     <div className="login-form">
+      <form onSubmit={handleSubmit}>
       <input
         type="text"
         value={username}
@@ -59,9 +64,10 @@ function Login({ setUser }) {
       />
       <button type="submit">Login</button>
     </form>
-    <p>Don't have an account?</p>
+    <p className='message'>Don't have an account?</p>
     <button className="register-button" onClick={handleRegisterClick}>Register Now</button>
-  </div>
+     </div>
+    </div>
 );
 
 }

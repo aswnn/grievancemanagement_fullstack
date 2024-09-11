@@ -40,10 +40,10 @@ function StudentDashboard({ user, setUser }) {
 
   return (
     <div className="student-dashboard">
-      <h1>Welcome, <span className='user-name-student'>{user.username}!</span></h1>
+      <h1 className='welcome'>Welcome, <span className='user-name-student'>{user.username}!</span></h1>
       
       <div className="grievance-section">
-        <h2>Add New Grievance</h2>
+        <h2 className='add'>Add New Grievance</h2>
         <form onSubmit={addGrievance} className="grievance-form">
           <textarea
             value={newGrievance}
@@ -67,7 +67,7 @@ function StudentDashboard({ user, setUser }) {
               <p><strong>Description:</strong> {grievance.description}</p>
               <p><strong>Status:</strong> <span className={`status ${grievance.status.toLowerCase()}`}>{grievance.status}</span></p>
             </div>
-          ))
+          ))                                                                                     
         )}
       </div>
       <div className='logoutuser'><button className='logout3' onClick={()=>navigate('/')}>Logout</button></div>

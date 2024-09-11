@@ -10,4 +10,3 @@ public interface GrievanceRepository extends JpaRepository<Grievance, Long> {
     List<Grievance> findBySupervisor(User supervisor);
     List<Grievance> findByAssignee(User assignee);
 }
-

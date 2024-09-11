@@ -10,7 +10,7 @@ function SupervisorDashboard({ user }) {
   const [assignees, setAssignees] = useState([]);
   const [allUsers, setAllUsers] = useState([]);
   const [editingUserId, setEditingUserId] = useState(null);
-  const navigate= useNavigate();
+  const navigate = useNavigate();
 
   const fetchGrievances = async () => {
     try {
@@ -64,6 +64,17 @@ function SupervisorDashboard({ user }) {
     }
   };
 
+  const deleteGrievance = async (grievanceId) => {
+    try {
+      await axios.delete(`${API_BASE_URL}/api/grievances/delete/${grievanceId}`);
+      fetchGrievances(); // Refresh grievances list after deletion
+      alert('Grievance deleted successfully');
+    } catch (error) {
+      console.error('Failed to delete grievance', error);
+      alert('Failed to delete grievance');
+    }
+  };
+
   const handleDelete = async (id) => {
     try {
       await axios.delete(`${API_BASE_URL}/api/users/delete/${id}`);
@@ -74,7 +85,6 @@ function SupervisorDashboard({ user }) {
       alert('Failed to delete user');
     }
   };
-  
 
   const toggleRoleDropdown = (userId) => {
     console.log("Edit button clicked for userId:", userId);
@@ -95,13 +105,14 @@ function SupervisorDashboard({ user }) {
             <select 
               onChange={(e) => assignGrievance(grievance.id, e.target.value)} 
               defaultValue={grievance.assignee ? grievance.assignee.id : ""} 
-              disabled={!!grievance.assignee} // Disable dropdown if the grievance is already assigned
+              disabled={!!grievance.assignee} // Disable dropdown if grievance is already assigned
             >
               <option value="" disabled>Assign to...</option>
               {assignees.map(assignee => (
                 <option key={assignee.id} value={assignee.id}>{assignee.username}</option>
               ))}
             </select>
+            <button className='delete-button1' onClick={() => deleteGrievance(grievance.id)}>🗑️</button> {/* Delete button */}
           </div>
         ))}
       </div>
@@ -115,13 +126,13 @@ function SupervisorDashboard({ user }) {
               <div className="role-container">
                 <p className="role">{user.role}</p>
                 <div className='icon-buttons'>
-                <button className="edit-button" onClick={() => toggleRoleDropdown(user.id)}>
-                  ✎
-                </button>
-                <button className="delete-button" onClick={() => handleDelete(user.id)}>
-              🗑️
-            </button>
-            </div>
+                  <button className="edit-button" onClick={() => toggleRoleDropdown(user.id)}>
+                    ✎
+                  </button>
+                  <button className="delete-button" onClick={() => handleDelete(user.id)}>
+                    🗑️
+                  </button>
+                </div>
                 {editingUserId === user.id && (
                   <div className="role-select">
                     <select 
@@ -136,11 +147,13 @@ function SupervisorDashboard({ user }) {
                 )}
               </div>
             </div>
-            </div>
+          </div>
         ))}
       </div>
 
-      <div className='superlogout'><button className='logout1'  onClick={()=>navigate('/')}>Logout</button></div>
+      <div className='superlogout'>
+        <button className='logout1' onClick={() => navigate('/')}>Logout</button>
+      </div>
     </div>
   );
 }

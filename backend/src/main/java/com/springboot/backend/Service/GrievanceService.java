@@ -41,4 +41,9 @@ public class GrievanceService {
         grievance.setStatus("RESOLVED");
         return grievanceRepository.save(grievance);
     }
+
+    public void deleteGrievance(Long grievanceId) {
+        grievanceRepository.deleteById(grievanceId);
+    }
+
 }

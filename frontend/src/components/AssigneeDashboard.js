@@ -34,7 +34,7 @@ function AssigneeDashboard({ user }) {
   return (
     <div className="assignee-dashboard">
       <h1>Assignee Dashboard</h1>
-      <p className="user-welcome">Welcome, <span className="user-name">{user.username}</span>!</p>
+      
       <div className="grievances-list">
         <h2>Assigned Grievances</h2>
         {grievances.length === 0 ? (
